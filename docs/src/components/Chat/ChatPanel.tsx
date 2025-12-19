@@ -25,7 +25,7 @@ interface ChatPanelProps {
 type PanelSize = 'small' | 'medium' | 'large';
 // ------------------------------------------------------------
 // API Configuration
-let API_URL = 'web-production-e1ceb.up.railway.app';
+let API_URL = 'https://web-production-c3f19.up.railway.app';
 
 // Agar browser mein 'localhost' likha hai, to Local Backend use karo
 if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
