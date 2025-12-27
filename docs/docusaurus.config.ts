@@ -3,15 +3,28 @@ import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
+const isVercel = process.env.VERCEL === '1';  // cgp cmnd
+
 const config: Config = {
   title: 'Physical AI & Humanoid Robotics',
   tagline: 'Bridging the gap between the digital brain and the physical body',
   favicon: 'img/favicon.ico',
 
-  // Set the production url of your site here
-  url: 'https://github.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  baseUrl: '/physical-ai-humanoid-robotics-book/',
+
+  // cgp cmnd
+  url: isVercel
+  ? 'https://physical-ai-humanoid-robotics-book.vercel.app'
+  : 'https://Ai-sha19.github.io',
+
+baseUrl: isVercel
+  ? '/'
+  : '/physical-ai-and-humanoid-robotics/',
+
+
+  // // Set the production url of your site here
+  // url: 'https://github.com',
+  // // Set the /<baseUrl>/ pathname under which your site is served
+  // baseUrl: '/physical-ai-humanoid-robotics-book/',
 
   // GitHub pages deployment config.
   organizationName: 'Aisha',

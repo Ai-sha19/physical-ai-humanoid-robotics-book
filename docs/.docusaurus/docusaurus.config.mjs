@@ -8,7 +8,7 @@ export default {
   "tagline": "Bridging the gap between the digital brain and the physical body",
   "favicon": "img/favicon.ico",
   "url": "https://github.com",
-  "baseUrl": "/",
+  "baseUrl": "/physical-ai-humanoid-robotics-book/",
   "organizationName": "Aisha",
   "projectName": "physical-ai-and-humanoid-robotics",
   "onBrokenLinks": "warn",

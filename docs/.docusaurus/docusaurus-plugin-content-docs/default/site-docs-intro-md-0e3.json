@@ -5,7 +5,7 @@
   "source": "@site/docs/intro.md",
   "sourceDirName": ".",
   "slug": "/",
-  "permalink": "/docs/",
+  "permalink": "/physical-ai-humanoid-robotics-book/docs/",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/Ai-sha19/docs/intro.md",
@@ -19,10 +19,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Hardware Requirements",
-    "permalink": "/docs/hardware-requirements"
+    "permalink": "/physical-ai-humanoid-robotics-book/docs/hardware-requirements"
   },
   "next": {
     "title": "Module 1: ROS 2 Fundamentals",
-    "permalink": "/docs/category/module-1-ros-2-fundamentals"
+    "permalink": "/physical-ai-humanoid-robotics-book/docs/category/module-1-ros-2-fundamentals"
   }
 }
