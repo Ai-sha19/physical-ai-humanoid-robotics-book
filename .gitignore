@@ -1,7 +1,7 @@
 # Node.js/TypeScript
 node_modules/
 dist/
-# build/
+build/
 *.log
 .env*
 
@@ -20,5 +20,5 @@ Thumbs.db
 .idea/
 
 # Docusaurus
-# .docusaurus/
+.docusaurus/
 .cache/
