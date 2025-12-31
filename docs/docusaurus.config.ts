@@ -68,11 +68,10 @@ baseUrl: isVercel
     // Replace with your project's social card
     image: 'img/social-card.jpg',
     
-    // We handle dark mode toggle in the UserProfileButton, 
-    // but we keep respectPrefersColorScheme true
+    // Enable color mode toggle with custom orange theme
     colorMode: {
       defaultMode: 'light',
-      disableSwitch: true, 
+      disableSwitch: false, // Enable toggle so users can switch between light/dark
       respectPrefersColorScheme: true,
     },
 

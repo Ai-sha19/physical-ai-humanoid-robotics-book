@@ -24,15 +24,34 @@ interface ChatPanelProps {
 
 type PanelSize = 'small' | 'medium' | 'large';
 // ------------------------------------------------------------
-// API Configuration
-let API_URL = 'https://web-production-c3f19.up.railway.app';
+// API Configuration - Support environment variables
+// Priority: 1. REACT_APP_API_URL (env var), 2. localhost detection, 3. Default Railway URL
 
-// Agar browser mein 'localhost' likha hai, to Local Backend use karo
-if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
-  API_URL = 'http://localhost:8000';
-}
+const getApiUrl = () => {
+  // Check environment variable first
+  if (typeof process !== 'undefined' && process.env?.REACT_APP_API_URL) {
+    return process.env.REACT_APP_API_URL;
+  }
 
+  // Check browser's custom fields (Docusaurus customFields)
+  if (typeof window !== 'undefined' && (window as any).docusaurus?.customFields?.apiUrl) {
+    return (window as any).docusaurus.customFields.apiUrl;
+  }
+
+  // For local development
+  if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
+    return 'http://localhost:8000';
+  }
+
+  // Default to Railway production URL
+  return 'https://web-production-c3f19.up.railway.app';
+};
+
+const API_URL = getApiUrl();
 const API_KEY = 'backend1234';
+
+// Debug log - remove in production
+console.log('[ChatPanel] API URL:', API_URL);
 //-----------------------------------------------------------
 
 // Regex to detect redirect commands in response

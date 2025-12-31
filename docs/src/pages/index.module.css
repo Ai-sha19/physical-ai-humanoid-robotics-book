@@ -195,18 +195,66 @@
 
 /* ============================================
    CTA SECTION - Call to Action
+   Light Mode: White box with shadow, black text, gold button
+   Dark Mode: Lighter black box with shadow, white text, gold button
+   With hover gold highlight effect
    ============================================ */
 .cta {
   padding: 6rem 2rem;
   text-align: center;
-  background: linear-gradient(135deg, var(--ifm-color-primary-light) 0%, var(--ifm-color-primary) 100%);
-  color: white;
+  /* Light mode default */
+  background: #f8f8f8;
+  color: #1a1a1a;
   margin: 4rem 0;
   border-radius: 16px;
   max-width: 800px;
   margin: 4rem auto;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 20px rgba(210, 128, 40, 0.1), 0 0 0 1px rgba(210, 128, 40, 0.08);
+  border: 1px solid rgba(210, 128, 40, 0.12);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark mode CTA - lighter black for prominence */
+[data-theme='dark'] .cta {
+  background: #1e1e1e;
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(210, 128, 40, 0.15);
+  border: 1px solid rgba(210, 128, 40, 0.2);
+}
+
+/* Hover effect - gold glow */
+.cta:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 48px rgba(210, 128, 40, 0.25), 0 0 0 2px rgba(210, 128, 40, 0.3);
+  border-color: rgba(210, 128, 40, 0.4);
+}
+
+[data-theme='dark'] .cta:hover {
+  box-shadow: 0 12px 48px rgba(210, 128, 40, 0.2), 0 0 0 2px rgba(210, 128, 40, 0.4);
+  border-color: rgba(210, 128, 40, 0.5);
+}
+
+/* Inner glow effect on hover */
+.cta::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 2px;
+  background: linear-gradient(135deg, rgba(210, 128, 40, 0.3) 0%, rgba(210, 128, 40, 0.1) 50%, rgba(210, 128, 40, 0.3) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.cta:hover::after {
+  opacity: 1;
 }
 
 .cta::before {
@@ -216,44 +264,63 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at center, transparent 20%, rgba(0,0,0,0.1) 100%);
+  background: radial-gradient(circle at center, transparent 20%, rgba(0,0,0,0.03) 100%);
   pointer-events: none;
+}
+
+[data-theme='dark'] .cta::before {
+  background: radial-gradient(circle at center, transparent 20%, rgba(210, 128, 40, 0.03) 100%);
 }
 
 .ctaContent h2 {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: white;
+  /* Light mode text color */
+  color: #1a1a1a;
+}
+
+/* Dark mode heading */
+[data-theme='dark'] .ctaContent h2 {
+  color: #ffffff;
 }
 
 .ctaContent p {
   font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.9);
+  /* Light mode text color */
+  color: #4a4a4a;
   margin-bottom: 2rem;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
 
+/* Dark mode paragraph */
+[data-theme='dark'] .ctaContent p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
 .ctaButton {
   display: inline-block;
-  background: white;
-  color: var(--ifm-color-primary);
+  /* Gold button background */
+  background: linear-gradient(135deg, #d28028 0%, #b86e1e 100%);
+  color: white;
   padding: 1rem 2.5rem;
   border-radius: 50px;
   text-decoration: none;
   font-weight: 600;
   font-size: 1.1rem;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(210, 128, 40, 0.3);
+  border: none;
 }
 
 .ctaButton:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 20px rgba(210, 128, 40, 0.4);
   text-decoration: none;
-  color: var(--ifm-color-primary);
+  color: white;
+  background: linear-gradient(135deg, #e0923e 0%, #d28028 100%);
 }
 
 /* Responsive */

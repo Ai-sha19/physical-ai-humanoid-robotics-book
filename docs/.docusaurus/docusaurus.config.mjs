@@ -43,7 +43,7 @@ export default {
     "image": "img/social-card.jpg",
     "colorMode": {
       "defaultMode": "light",
-      "disableSwitch": true,
+      "disableSwitch": false,
       "respectPrefersColorScheme": true
     },
     "navbar": {

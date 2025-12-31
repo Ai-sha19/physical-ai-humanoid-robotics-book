@@ -1,58 +1,75 @@
-/* src\components\Chat\AiChatButton.module.css */
+/* src/components/Chat/AiChatButton.module.css */
 .chatButton {
   position: fixed;
   bottom: 24px;
   right: 24px;
-  width: 52px;
-  height: 52px;
-  border-radius: 12px;
-  background: var(--ifm-color-primary-darkest);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #d28028 0%, #b86e1e 100%);
   color: white;
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-  transition: all 0.2s ease;
+  box-shadow: 0 6px 24px rgba(210, 128, 40, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 9997;
 }
 
 .chatButton:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 32px rgba(210, 128, 40, 0.5);
+}
+
+.chatButton:active {
+  transform: translateY(-2px) scale(1.02);
 }
 
 .chatButton.active {
-  background: var(--ifm-font-color-secondary);
-  border-radius: 12px;
+  background: linear-gradient(135deg, #b86e1e 0%, #8e5517 100%);
+  border-radius: 50%;
+}
+
+.chatIcon {
+  width: 28px;
+  height: 28px;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
 }
 
 .badge {
   position: absolute;
-  top: -6px;
-  right: -6px;
-  min-width: 18px;
-  height: 18px;
-  padding: 0 5px;
+  top: -4px;
+  right: -4px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
   background: #e74c3c;
   color: white;
-  border-radius: 9px;
+  border-radius: 10px;
   font-size: 0.7rem;
   font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 2px solid var(--ifm-background-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .tooltip {
   position: absolute;
-  right: 60px;
+  right: 70px;
   background: var(--ifm-background-surface-color);
   border: 1px solid var(--ifm-color-emphasis-200);
   padding: 0.5rem 0.75rem;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 0.8rem;
   color: var(--ifm-font-color-base);
   white-space: nowrap;
@@ -66,14 +83,35 @@
   opacity: 1;
 }
 
+/* Dark mode specific */
+[data-theme='dark'] .chatButton {
+  background: linear-gradient(135deg, #d28028 0%, #ac681c 100%);
+  box-shadow: 0 6px 24px rgba(210, 128, 40, 0.3);
+}
+
+[data-theme='dark'] .chatButton:hover {
+  box-shadow: 0 10px 32px rgba(210, 128, 40, 0.4);
+}
+
+[data-theme='dark'] .tooltip {
+  background: #1e1e1e;
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #e5e5e5;
+}
+
 @media (max-width: 480px) {
   .chatButton {
     bottom: 16px;
     right: 16px;
-    width: 48px;
-    height: 48px;
+    width: 52px;
+    height: 52px;
   }
-  
+
+  .chatIcon {
+    width: 24px;
+    height: 24px;
+  }
+
   .tooltip {
     display: none;
   }
